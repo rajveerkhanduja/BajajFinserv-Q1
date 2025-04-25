@@ -18,8 +18,8 @@ export const fetchDoctors = async (maxRetries = 3, retryDelay = 1000) => {
       
       console.log(`Attempt ${attempt + 1}: Starting API request...`);
       
-      // Use the proxy configured in vite.config.js
-      const apiUrl = '/api/campus-api-mock/SRM-C1-25.json';
+      // Use the direct GitHub Pages URL instead of a proxy
+      const apiUrl = 'https://srijandubey.github.io/campus-api-mock/SRM-C1-25.json';
       
       const response = await fetch(apiUrl, {
         headers: {
