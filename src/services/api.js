@@ -18,8 +18,8 @@ export const fetchDoctors = async (maxRetries = 3, retryDelay = 1000) => {
       
       console.log(`Attempt ${attempt + 1}: Starting API request...`);
       
-      // Use the direct GitHub Pages URL instead of a proxy
-      const apiUrl = 'https://srijandubey.github.io/campus-api-mock/SRM-C1-25.json';
+      // Use our serverless function endpoint
+      const apiUrl = '/api/doctors';
       
       const response = await fetch(apiUrl, {
         headers: {
@@ -41,8 +41,6 @@ export const fetchDoctors = async (maxRetries = 3, retryDelay = 1000) => {
       // Process the data to add local image fallbacks if needed
       const processedData = data.map(doctor => ({
         ...doctor,
-        // You can add a property to indicate a local fallback image should be used
-        // This is just an example - adjust according to your actual data structure
         useLocalImage: true
       }));
       
